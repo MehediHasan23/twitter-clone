@@ -1,0 +1,57 @@
+extends ./../../layouts/header.pug
+//- title
+block title 
+    title= title
+
+//- css link
+block cssLink
+    link(rel="stylesheet", href="/css/login.css")
+
+//- script added 
+block jsScript
+    script(src="/js/verifyOtp.js" defer)
+
+block bodyContent
+    .signInContainer
+        .wrapper
+            .loginWrapper
+                .social_icon
+                    i.fab.fa-twitter
+                
+                h2 Verify OTP
+                p
+                    | We have sent a OTP to 
+                    span.text-primary #{otp.email}
+                
+                //- form 
+                form(action="/verifyOtp", method="post" )
+                    label(for="otp") Enter Your OTP
+
+                    .Otp_field
+                        i.Otp_icon.fas.fa-user-lock
+                        input#otpArea(type="number", maxlength='6'  name="otp" class="form-control" required='' value=otp.value)
+                    if error.otp
+                        p.error.username-error.py-2 #{error.otp.msg}
+
+                    input(type="hidden" name="otpId" value=otp.otpId)
+                    input(type="hidden" name="otpEmail" value=otp.email)
+                    
+                    //-submit button 
+                    input(type="submit", value="Verify OTP" class="form-control login_btn")
+
+                    
+                
+
+                p#countdown.text-center.py-2
+                    | Expires In 
+                    span.text-warning 1:59
+            
+                form(action="/resetpassword" method="post")
+                    input(type="hidden" name="username" value=otp.email)
+                    input(type="submit" value="Resend OTP" class="form-control login_btn my-2")
+                //- text 
+                .reset-container.d-flex.justify-content-between 
+                    p.disclaim Don't have an account? 
+                        a(href="/signup") Sign up
+                    
+                    

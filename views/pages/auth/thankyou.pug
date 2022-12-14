@@ -1,0 +1,26 @@
+extends ./../../layouts/header.pug
+//- title
+block title 
+    title= title
+
+//- css link
+block cssLink
+    link(rel="stylesheet", href="/css/thankyou.css")
+
+//- script added 
+block jsScript
+    script(src="/js/thankyou.js" defer)
+
+block bodyContent
+    .thankyou_container
+        .thankYouImg 
+            img.thankImg(src="/assets/thank-you.png", alt="")
+        .text-center.my-4.congrats_text
+            h3  Congratulations
+        .confirmation_header
+            p Hello, #{name} Your account was verified successfully. Now you are a verified user and cam sign in with your credentials.
+                
+
+        .submitBtn 
+              button#submit.submit(type="submit")
+                a(href="/login") LOGIN
