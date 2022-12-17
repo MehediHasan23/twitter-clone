@@ -9,8 +9,8 @@ block cssLink
     link(rel="stylesheet", href="/css/profile.css")
 
 //- script added 
-block jsScript
-    script(src="/js/home.js" defer) 
+block jsScript  
+    script(src="/js/common.js" defer) 
     script(src="/js/profile.js" defer) 
 
 //- body 
@@ -200,11 +200,11 @@ block bodyContent
                     a.tweets_tab(class=tab === 'posts' ? 'active' : '' href=`/profile/`+ profileUser.username) 
                         button Tweets
 
-                    a.replies_tab(class=tab === 'replies' ? 'active' : '' href=`/profile/`+ profileUser.username + '/replies') 
+                    a.replies_tab(class=tab === 'replies' ? 'active' : '' href=`/profile/`+ profileUser.username + '/replies/') 
                         button Replies
 
 
-                .profileTweetContainer
+                .tweetContainer
 
             else 
                 h4.empty_content User Not Found 

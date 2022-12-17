@@ -15,7 +15,6 @@ const tweetPost = async (req, res, next) => {
       likes: [],
       retweetUsers: [],
       postData: null,
-      replyTo: null,
       replyPosts: [],
     };
 
