@@ -22,6 +22,7 @@ const homeRouter = require("./routes/home/homeRoute");
 const tweetRoute = require("./routes/APIs/tweetPost");
 const { redisClient } = require("./utilities/cacheManager");
 const singlePost = require("./routes/APIs/singlePost");
+const profileRoute = require("./routes/profile/profileRoute");
 
 /* middleware */
 app.use(express.json());
@@ -29,21 +30,24 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser(process.env.COOKIE_SECRETE));
 
-/* route */
-/* app.get("/", (req, res) => {
-  res.render("pages/auth/createNewPassword", {
-    error: {},
-    user: {},
-    otp: {},
-  });
-}); */
+/* route  start ================*/
 
+/* auth route */
 app.use(authRoute);
+
+/* posts route */
 app.use("/posts", tweetRoute);
 
+/* profile route */
+app.use("/profile", profileRoute);
+
+/* single post route */
 app.use("/", singlePost);
 
+/* home route */
 app.use("/", homeRouter);
+
+/* route end====================== */
 
 /* not found handler */
 app.use(notFoundHandler);
