@@ -175,7 +175,7 @@ body {
 
     a.tweets_tab {
       button {
-        color: #eff3f4;
+        color: #565a5e;
         background: transparent;
         width: 250px;
         height: 35px;
@@ -184,13 +184,21 @@ body {
         &:hover {
           background: #181818;
           border-bottom: 2px solid #1d9bf0;
+          color: #eff3f4;
         }
+      }
+    }
+
+    a.tweets_tab.active {
+      border-bottom: 2px solid #1d9bf0;
+      button {
+        color: #eff3f4;
       }
     }
 
     a.replies_tab {
       button {
-        color: #eff3f4;
+        color: #565a5e;
         background: transparent;
         width: 250px;
         height: 35px;
@@ -199,7 +207,15 @@ body {
         &:hover {
           background: #181818;
           border-bottom: 2px solid #1d9bf0;
+          color: #eff3f4;
         }
+      }
+    }
+
+    a.replies_tab.active {
+      border-bottom: 2px solid #1d9bf0;
+      button {
+        color: #eff3f4;
       }
     }
   }

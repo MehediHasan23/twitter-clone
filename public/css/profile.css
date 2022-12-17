@@ -154,7 +154,7 @@ body {
   justify-content: space-around;
 }
 .middle_side .tabs_container a.tweets_tab button {
-  color: #eff3f4;
+  color: #565a5e;
   background: transparent;
   width: 250px;
   height: 35px;
@@ -163,9 +163,16 @@ body {
 .middle_side .tabs_container a.tweets_tab button:hover {
   background: #181818;
   border-bottom: 2px solid #1d9bf0;
+  color: #eff3f4;
+}
+.middle_side .tabs_container a.tweets_tab.active {
+  border-bottom: 2px solid #1d9bf0;
+}
+.middle_side .tabs_container a.tweets_tab.active button {
+  color: #eff3f4;
 }
 .middle_side .tabs_container a.replies_tab button {
-  color: #eff3f4;
+  color: #565a5e;
   background: transparent;
   width: 250px;
   height: 35px;
@@ -174,6 +181,13 @@ body {
 .middle_side .tabs_container a.replies_tab button:hover {
   background: #181818;
   border-bottom: 2px solid #1d9bf0;
+  color: #eff3f4;
+}
+.middle_side .tabs_container a.replies_tab.active {
+  border-bottom: 2px solid #1d9bf0;
+}
+.middle_side .tabs_container a.replies_tab.active button {
+  color: #eff3f4;
 }
 .middle_side .profileTweetContainer {
   height: 100%;
