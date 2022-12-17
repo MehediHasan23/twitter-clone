@@ -2,6 +2,7 @@
 
 const createHttpError = require("http-errors");
 const User = require("../../models/auth/UserModel");
+const Tweet = require("../../models/tweet/tweet");
 const { cacheGetAndSet } = require("../../utilities/cacheManager");
 
 /* home controller */
