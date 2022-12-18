@@ -15,3 +15,9 @@ async function loadPostOrReplies() {
   });
 }
 loadPostOrReplies();
+
+/* following & follower */
+function followHandler(e, userId) {
+  console.log(e.target);
+  console.log(userId);
+}
