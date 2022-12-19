@@ -41,6 +41,42 @@ block bodyContent
                                 input#replyImg(type='file', multiple, name='replyImg')
                                 button#replyBtn.replySubmit(disabled="") Reply
 
+    #avatarUpdateModal.modal.fade(tabindex='-1', aria-labelledby='avatarUpdateModalTitle',  role="dialog"        aria-hidden='true')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5#avatarUpdateModalTitle.modal-title Update Profile Avatar
+
+                    button.button-Close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+
+                .modal-body
+                    input#updateInputAvatar(type="file")
+                    #avatarPrevieContainer
+                        img#avatarPreview
+        
+                .modal-footer
+                    button.btn.avatarUpdateCloseBtn(type="button", data-dismiss="modal")  Close
+                    button#saveAvatarImage.btn.avatarUpdateSaveBtn(type="button")  Update
+
+    #coverUpdateModal.modal.fade(tabindex='-1', aria-labelledby='coverUpdateModalTitle',  role="dialog"        aria-hidden='true')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5#coverUpdateModalTitle.modal-title Update Cover Photo
+
+                    button.button-Close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+
+                .modal-body
+                    input#updateInputCover(type="file")
+                    #CoverPrevieContainer
+                        img#CoverPreview
+        
+                .modal-footer
+                    button.btn.CoverUpdateCloseBtn(type="button", data-dismiss="modal")  Close
+                    button#saveCoverImage.btn.CoverUpdateSaveBtn(type="button")  Update 
+
     main#main 
         
         .left_side 
@@ -163,10 +199,23 @@ block bodyContent
 
                     .coverImage 
                         img(src="/uploads/profile/avatar.png", alt="")
+
+                        if profileUser.username === user.username
+                            button.uploadCoverImg(data-toggle="modal", data-target="#coverUpdateModal")
+                                svg.bi.bi-camera(xmlns='http://www.w3.org/2000/svg', width='22', height='22', fill='currentColor', viewbox='0 0 16 16')
+                                    path(d='M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z' fill="#565a5e")
+                                    path(d='M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z' fill="#565a5e")
                             
                     .profileAvatar
                         img(src="/uploads/profile/" + profileUser.profileAvatar, alt="")
 
+                        if profileUser.username === user.username
+                            button.uploadImg(data-toggle="modal", data-target="#avatarUpdateModal")
+                                svg.bi.bi-camera(xmlns='http://www.w3.org/2000/svg', width='22', height='22', fill='currentColor', viewbox='0 0 16 16')
+                                    path(d='M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z' fill="#565a5e")
+                                    path(d='M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z' fill="#565a5e")
+
+                
                 .profileAction 
                     if profileUser.username !== user.username 
                         a.message
