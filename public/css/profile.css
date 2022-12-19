@@ -277,3 +277,8 @@ body {
   border: 1px solid #eff3f4;
   color: #eff3f4;
 }
+
+/* avatar update modal */
+div#avatarUpdateModal {
+  background: rgba(91, 112, 131, 0.4);
+}
