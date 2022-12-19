@@ -31,10 +31,12 @@ async function followHandler(e, userId) {
 
     if (isFollowing) {
       followBtn.textContent = "Following";
+      followBtn.classList.add("active");
       followingBtn.textContent = data.following.length + " ";
       followersBtn.textContent = data.followers.length + " ";
     } else {
       followBtn.textContent = "Follow";
+      followBtn.classList.remove("active");
       followingBtn.textContent = data.following.length + " ";
       followersBtn.textContent = data.followers.length + " ";
     }

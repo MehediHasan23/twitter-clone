@@ -107,13 +107,18 @@ body {
   padding: 8px 11px;
 }
 .middle_side .profileAction button.follow {
-  background: transparent;
-  color: #eff3f4;
+  background: #eff3f4;
+  color: #2f3336;
   border: 1px solid #eff3f4;
   margin-right: 10px;
   width: 120px;
   border-radius: 25px;
   height: 40px;
+}
+.middle_side .profileAction button.follow.active {
+  background: transparent;
+  border: 1px solid #eff3f4;
+  color: #eff3f4;
 }
 .middle_side .profileDetails {
   padding-top: 28px;
@@ -193,4 +198,54 @@ body {
   height: 100%;
   border-left: 1px solid #2f3336;
   border-right: 1px solid #2f3336;
+}
+.middle_side .profileTweetContainer .follow {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.middle_side .profileTweetContainer .follow .socialConnectivity {
+  display: flex;
+}
+.middle_side .profileTweetContainer .follow .socialConnectivity .avatar {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+}
+.middle_side .profileTweetContainer .follow .socialConnectivity .avatar img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  height: 100%;
+}
+.middle_side .profileTweetContainer .follow .socialConnectivity .displayName {
+  margin-left: 10px;
+}
+.middle_side .profileTweetContainer .follow .socialConnectivity .displayName a h5 {
+  color: #eff3f4;
+}
+.middle_side .profileTweetContainer .follow .socialConnectivity .displayName span {
+  color: #565a5e;
+}
+.middle_side .profileTweetContainer .follow .followBtn {
+  margin-right: 25px;
+}
+.middle_side .profileTweetContainer .follow .followBtn button#followBtn {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 50px;
+  padding: 5px 50px;
+  border-radius: 28px;
+  background: #eff3f4;
+  border: 1px solid #eff3f4;
+  color: #2f3336;
+}
+.middle_side .profileTweetContainer .follow .followBtn button#followBtn.follow.active {
+  background: transparent;
+  border: 1px solid #eff3f4;
+  color: #eff3f4;
 }

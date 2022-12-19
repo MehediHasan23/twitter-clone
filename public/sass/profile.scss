@@ -117,13 +117,19 @@ body {
     }
 
     button.follow {
-      background: transparent;
-      color: #eff3f4;
+      background: #eff3f4;
+      color: #2f3336;
       border: 1px solid #eff3f4;
       margin-right: 10px;
       width: 120px;
       border-radius: 25px;
       height: 40px;
+    }
+
+    button.follow.active {
+      background: transparent;
+      border: 1px solid #eff3f4;
+      color: #eff3f4;
     }
   }
 
@@ -224,5 +230,66 @@ body {
     height: 100%;
     border-left: 1px solid #2f3336;
     border-right: 1px solid #2f3336;
+
+    .follow {
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      .socialConnectivity {
+        display: flex;
+
+        .avatar {
+          width: 50px;
+          height: 50px;
+          margin-left: 5px;
+
+          img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            height: 100%;
+          }
+        }
+
+        .displayName {
+          margin-left: 10px;
+
+          a {
+            h5 {
+              color: #eff3f4;
+            }
+          }
+
+          span {
+            color: #565a5e;
+          }
+        }
+      }
+
+      .followBtn {
+        margin-right: 25px;
+
+        button#followBtn {
+          width: 150px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          height: 50px;
+          padding: 5px 50px;
+          border-radius: 28px;
+          background: #eff3f4;
+          border: 1px solid #eff3f4;
+          color: #2f3336;
+        }
+
+        button#followBtn.follow.active {
+          background: transparent;
+          border: 1px solid #eff3f4;
+          color: #eff3f4;
+        }
+      }
+    }
   }
 }

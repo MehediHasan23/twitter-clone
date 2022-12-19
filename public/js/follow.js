@@ -14,14 +14,16 @@ async function followHandler(e, userId) {
 
     if (isFollowing) {
       if (userProfile._id === user._id) {
-        followingBtn.textContent = parseInt(followingBtn.textContent) + 1;
+        followingBtn.textContent = parseInt(followingBtn.textContent) + 1 + " ";
       }
       followBtn.textContent = "Following";
+      followBtn.classList.add("active");
     } else {
       if (userProfile._id === user._id) {
-        followingBtn.textContent = parseInt(followingBtn.textContent) - 1;
+        followingBtn.textContent = parseInt(followingBtn.textContent) - 1 + " ";
       }
       followBtn.textContent = "Follow";
+      followBtn.classList.remove("active");
     }
 
     if (data._id === userProfile._id) {
@@ -59,9 +61,11 @@ function createFollowEl(data) {
   const name = `${data.firstName} ${data.lastName}`;
 
   const isFollowing = data?.followers?.includes(user._id);
+
   let followBtn = "";
 
   if (data._id !== user._id) {
+    console.log(isFollowing);
     followBtn = `
     <button class="follow ${
       isFollowing ? "active" : ""
@@ -77,18 +81,22 @@ function createFollowEl(data) {
   const div = document.createElement("div");
   div.classList.add("follow");
   div.innerHTML = `
-        <div class="avatar">
-            <img src="/uploads/profile/${data.profileAvatar}">
-        </div>
+        <div class="socialConnectivity">
         
-        <div class="displayName">
+          <div class="avatar">
+              <img src="/uploads/profile/${data.profileAvatar}">
+          </div>
+          
+          <div class="displayName">
 
-            <a href="/profile/${data.username}">
-                <h5>${data.username}</h5>
-            </a>
+              <a href="/profile/${data.username}">
+                  <h5>${data.username}</h5>
+              </a>
 
-            <span>@${name}</span>
+              <span>@${name}</span>
 
+          </div>
+        
         </div>
 
         <div class="followBtn">
