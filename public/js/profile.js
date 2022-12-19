@@ -17,7 +17,26 @@ async function loadPostOrReplies() {
 loadPostOrReplies();
 
 /* following & follower */
-function followHandler(e, userId) {
-  console.log(e.target);
-  console.log(userId);
+async function followHandler(e, userId) {
+  const url = `${window.location.origin}/profile/${userId}/follow`;
+  const res = await fetch(url, {
+    method: "PUT",
+  });
+  const data = await res.json();
+  if (data) {
+    const isFollowing = data.followers && data.followers.includes(user._id);
+    const followBtn = e.target;
+    const followingBtn = document.querySelector("a.following span");
+    const followersBtn = document.querySelector("a.followers span");
+
+    if (isFollowing) {
+      followBtn.textContent = "Following";
+      followingBtn.textContent = data.following.length + " ";
+      followersBtn.textContent = data.followers.length + " ";
+    } else {
+      followBtn.textContent = "Follow";
+      followingBtn.textContent = data.following.length + " ";
+      followersBtn.textContent = data.followers.length + " ";
+    }
+  }
 }

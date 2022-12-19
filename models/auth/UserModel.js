@@ -8,17 +8,20 @@ const UserSchema = new mongoose.Schema(
       trim: true,
       minLength: 3,
     },
+
     lastName: {
       type: String,
       trim: true,
       minLength: 1,
     },
+
     username: {
       type: String,
       required: true,
       unique: true,
       minLength: 6,
     },
+
     email: {
       type: String,
       unique: true,
@@ -32,6 +35,7 @@ const UserSchema = new mongoose.Schema(
         },
       },
     },
+
     password: {
       type: String,
       required: true,
@@ -41,24 +45,42 @@ const UserSchema = new mongoose.Schema(
         },
       },
     },
+
     profileAvatar: {
       type: String,
     },
+
     status: {
       type: String,
       enum: ["unverified", "verified", "suspended"],
       default: "unverified",
     },
+
     likes: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Tweet",
       },
     ],
+
     retweetPost: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Tweet",
+      },
+    ],
+
+    following: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+
+    followers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
       },
     ],
   },
