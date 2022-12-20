@@ -6,7 +6,6 @@ const createHttpError = require("http-errors");
 const loginValidatorResult = (req, res, next) => {
   const errors = validationResult(req);
   const mappedErrors = errors.mapped();
-  console.log(mappedErrors);
   if (Object.keys(mappedErrors).length === 0) {
     next();
   } else {

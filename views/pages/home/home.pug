@@ -13,6 +13,8 @@ block jsScript
 
 //- body 
 block bodyContent
+    -avatarSrc = user.profileAvatar ? `/uploads/${user._id}/profile/${user.profileAvatar}` : `/uploads/profile/profileAvatar.png`
+    
     #replyModal.modal.fade(tabindex='-1', aria-labelledby='replayModalTitle',          aria-hidden='true')
         .modal-dialog
             .modal-content
@@ -24,7 +26,7 @@ block bodyContent
                 .modal-footer
                     .createPost 
                         .replyAvatar
-                            img(src="/uploads/profile/"+user.profileAvatar, alt='')
+                            img(src=avatarSrc, alt='')
 
                         .postField 
                             textarea#replyContent(placeholder="Tweet Your Reply")
@@ -106,7 +108,7 @@ block bodyContent
                             |   Lists
 
 
-                        a.nav_link(href="/profile") 
+                        a.nav_link(href="/profile/"+user.username) 
                             span
                                 svg.bi.bi-person-fill(xmlns='http://www.w3.org/2000/svg', width='22', height='22', fill='currentColor', viewbox='0 0 16 16')
                                     path(d='M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z')
@@ -134,7 +136,7 @@ block bodyContent
             .bottom_side
                 .userinfo               
                     .avatarImg
-                        img(src=`/uploads/profile/${user.profileAvatar}`, alt='')
+                        img(src=avatarSrc, alt='')
                     .userNameInfo
                         h6 #{user.firstName} #{user.lastName}
                         p @#{user.username}
@@ -155,7 +157,7 @@ block bodyContent
  
             .tweet_write_section
                 .avatar_section
-                    img(src=`/uploads/profile/${user.profileAvatar}`, alt='')
+                    img(src=avatarSrc, alt='')
     
                 .text_container
                     textarea#tweet_content(placeholder="What's Happening?")

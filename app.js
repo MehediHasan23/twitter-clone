@@ -1,3 +1,5 @@
-let num = 10;
-let x = ++num;
-console.log(x);
+const fs = require("fs");
+const path = require("path");
+
+const res = path.join(__dirname, `./person/uploads/profile/avatar`);
+console.log(res);

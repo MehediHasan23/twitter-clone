@@ -16,6 +16,8 @@ block jsScript
 
 //- body 
 block bodyContent
+    -avatarSrc = user.profileAvatar ? `/uploads/${user._id}/profile/${user.profileAvatar}` : `/uploads/profile/profileAvatar.png`
+
     #replyModal.modal.fade(tabindex='-1', aria-labelledby='replayModalTitle',          aria-hidden='true')
         .modal-dialog
             .modal-content
@@ -27,7 +29,7 @@ block bodyContent
                 .modal-footer
                     .createPost 
                         .replyAvatar
-                            img(src="/uploads/profile/"+user.profileAvatar, alt='')
+                            img(src=avatarSrc, alt='')
 
                         .postField 
                             textarea#replyContent(placeholder="Tweet Your Reply")
@@ -137,7 +139,7 @@ block bodyContent
             .bottom_side
                 .userinfo               
                     .avatarImg
-                        img(src=`/uploads/profile/${user.profileAvatar}`, alt='')
+                        img(src=avatarSrc, alt='')
                     .userNameInfo
                         h6 #{user.firstName} #{user.lastName}
                         p @#{user.username}

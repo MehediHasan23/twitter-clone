@@ -65,7 +65,6 @@ function createFollowEl(data) {
   let followBtn = "";
 
   if (data._id !== user._id) {
-    console.log(isFollowing);
     followBtn = `
     <button class="follow ${
       isFollowing ? "active" : ""

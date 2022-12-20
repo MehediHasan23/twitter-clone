@@ -141,6 +141,10 @@ function createTweet(tweetObj) {
     return "Just now";
   }
   const time = timeSince(new Date(createdAt).getTime());
+  /* avatar img */
+  const avatarSrc = profileAvatar
+    ? `/uploads/${_id}/profile/${profileAvatar}`
+    : "/uploads/profile/profileAvatar.png";
 
   const postContainer = document.createElement("div");
   // postContainer.classList.add("tweet");
@@ -149,9 +153,7 @@ function createTweet(tweetObj) {
       <div class="tweet" onclick="singlePostPage(event, '${postId}')">
       <div class="avatar_area">
         <div class="postedImg">
-          <img src="${
-            window.location.origin
-          }/uploads/profile/${profileAvatar}" alt="" />
+          <img src="${avatarSrc}" alt="" />
         </div>
       </div>
       <div class="tweet_body">

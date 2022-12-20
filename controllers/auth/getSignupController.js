@@ -1,6 +1,8 @@
 const User = require("../../models/auth/UserModel");
 const hashedPassword = require("../../utilities/hasedPassword");
 const sendemail = require("../../utilities/sendemail");
+const fs = require("fs");
+const path = require("path");
 
 /* register controller */
 const registerHandler = async (req, res, next) => {
@@ -16,7 +18,8 @@ const registerHandler = async (req, res, next) => {
       //encrypt password
       password = await hashedPassword(password);
       //extract filename from req.file
-      const { filename } = req.file;
+      const profileAvatar = req.file?.filename || "";
+
       //user Object
       const userObj = new User({
         firstName,
@@ -24,11 +27,23 @@ const registerHandler = async (req, res, next) => {
         username,
         email,
         password,
-        profileAvatar: filename,
+        profileAvatar,
         likes: [],
         retweetPost: [],
       });
+
       const user = await userObj.save();
+
+      if (profileAvatar) {
+        fs.rename(
+          path.join(__dirname, `../../temp/${profileAvatar}`),
+          path.join(
+            __dirname,
+            `../../public/uploads/${user._id}/profile/${profileAvatar}`
+          )
+        );
+      }
+
       if (user._id) {
         sendemail(
           //receiver Array[]
