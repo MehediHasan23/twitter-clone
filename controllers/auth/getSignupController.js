@@ -34,12 +34,29 @@ const registerHandler = async (req, res, next) => {
 
       const user = await userObj.save();
 
+      console.log(path.join(__dirname, `../../temp/${profileAvatar}`));
+      console.log(
+        path.join(
+          __dirname,
+          `../../public/uploads/${user._id}/profile/${profileAvatar}`
+        )
+      );
+
+      /* make folder for image file */
+      fs.mkdirSync(
+        path.join(__dirname, `../../public/uploads/${user._id}/profile/`),
+        {
+          recursive: true,
+        }
+      );
+
+      /* cut avatar img from temp file to own file */
       if (profileAvatar) {
-        fs.rename(
+        fs.renameSync(
           path.join(__dirname, `../../temp/${profileAvatar}`),
           path.join(
             __dirname,
-            `../../public/uploads/${user._id}/profile/${profileAvatar}`
+            `../../public/uploads/${user._id}/profile/${user.profileAvatar}`
           )
         );
       }
@@ -72,6 +89,7 @@ const registerHandler = async (req, res, next) => {
       }
     }
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };

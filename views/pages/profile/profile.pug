@@ -12,6 +12,7 @@ block cssLink
 block jsScript  
     script(src="/js/common.js" defer) 
     script(src="/js/profile.js" defer) 
+    //- script(src="/js/uploadImage.js" defer) 
 
 //- body 
 block bodyContent
@@ -60,8 +61,8 @@ block bodyContent
                         img#avatarPreview
         
                 .modal-footer
-                    button.btn.avatarUpdateCloseBtn(type="button", data-dismiss="modal")  Close
-                    button#saveAvatarImage.btn.avatarUpdateSaveBtn(type="button")  Update
+                    button.btn.btn.btn-danger.avatarUpdateCloseBtn(type="button", data-dismiss="modal")  Close
+                    button#saveAvatarImage.btn.btn-primary.avatarUpdateSaveBtn(type="button")  Update
 
     #coverUpdateModal.modal.fade(tabindex='-1', aria-labelledby='coverUpdateModalTitle',  role="dialog"        aria-hidden='true')
         .modal-dialog
