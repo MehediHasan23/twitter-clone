@@ -35,8 +35,8 @@ imgUploader(imageInput, `1/1`, avatarImgTagEl);
 imgUploader(coverImgInput, `16/9`, coverImgTagEl);
 
 /* image uploader [profile avatar || cover image] */
-function uploadImage(handler, imgInput, filename, path) {
-  handler.addEventListener("click", function (e) {
+function uploadImage(uploadBtn, imgInput, filename, path) {
+  uploadBtn.addEventListener("click", function (e) {
     const ImgFileName = imgInput?.files[0]?.name;
     const canvas = cropper.getCroppedCanvas();
     if (canvas) {
