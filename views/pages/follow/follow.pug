@@ -16,6 +16,10 @@ block jsScript
 
 //- body 
 block bodyContent
+    -avatarSrc = user.profileAvatar ? `/uploads/${user._id}/profile/${user.profileAvatar}` : `/uploads/profile/profileAvatar.png`
+
+    -userAvatarSrc = profileUser.profileAvatar ? `/uploads/${profileUser._id}/profile/${profileUser.profileAvatar}` : `/uploads/profile/profileAvatar.png`
+
     #replyModal.modal.fade(tabindex='-1', aria-labelledby='replayModalTitle',          aria-hidden='true')
         .modal-dialog
             .modal-content
@@ -170,7 +174,7 @@ block bodyContent
             .bottom_side
                 .userinfo               
                     .avatarImg
-                        img(src=`/uploads/profile/${user.profileAvatar}`, alt='')
+                        img(src=avatarSrc, alt='')
                     .userNameInfo
                         h6 #{user.firstName} #{user.lastName}
                         p @#{user.username}
@@ -207,7 +211,7 @@ block bodyContent
                                     path(d='M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z' fill="#565a5e")
                             
                     .profileAvatar
-                        img(src="/uploads/profile/" + profileUser.profileAvatar, alt="")
+                        img(src=userAvatarSrc, alt="")
 
                         if profileUser.username === user.username
                             button.uploadImg(data-toggle="modal", data-target="#avatarUpdateModal")

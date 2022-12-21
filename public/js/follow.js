@@ -77,13 +77,17 @@ function createFollowEl(data) {
       `;
   }
 
+  const imgSrc = data.profileAvatar
+    ? `/uploads/${data._id}/profile/${data.profileAvatar}`
+    : "/uploads/profile/profileAvatar.png";
+
   const div = document.createElement("div");
   div.classList.add("follow");
   div.innerHTML = `
         <div class="socialConnectivity">
         
           <div class="avatar">
-              <img src="/uploads/profile/${data.profileAvatar}">
+              <img src=${imgSrc}>
           </div>
           
           <div class="displayName">
