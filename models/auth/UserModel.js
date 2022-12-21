@@ -50,6 +50,10 @@ const UserSchema = new mongoose.Schema(
       type: String,
     },
 
+    coverPhoto: {
+      type: String,
+    },
+
     status: {
       type: String,
       enum: ["unverified", "verified", "suspended"],

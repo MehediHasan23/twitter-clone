@@ -28,6 +28,7 @@ const registerHandler = async (req, res, next) => {
         email,
         password,
         profileAvatar,
+        coverPhoto: "",
         likes: [],
         retweetPost: [],
       });
