@@ -1,8 +1,10 @@
+const uploadAvatarHandlar = require("../../controllers/APIs/uploadAvatarHandlar");
 const followersHandler = require("../../controllers/follow/followersHandler");
 const followingHandler = require("../../controllers/follow/followingHandler");
 const followHandler = require("../../controllers/profile/followHandler");
 const postHandler = require("../../controllers/profile/postHandler");
 const repliesHandler = require("../../controllers/profile/repliesHandler");
+const uploadAvatarImage = require("../../middlewares/APIs/uploadAvatarImage");
 const htmlResponse = require("../../middlewares/common/html");
 const loginChecker = require("../../middlewares/common/loginChecker");
 require("dotenv").config();
@@ -48,6 +50,15 @@ profileRoute.get(
   htmlResponse(`Profile-${process.env.APP_NAME}`),
   loginChecker,
   followingHandler
+);
+
+/* upload or update avatar||profile image */
+profileRoute.post(
+  "/avatar",
+  htmlResponse(`Profile-${process.env.APP_NAME}`),
+  loginChecker,
+  uploadAvatarImage,
+  uploadAvatarHandlar
 );
 
 module.exports = profileRoute;
