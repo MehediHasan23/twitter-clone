@@ -58,6 +58,7 @@ leftSide.children[0].addEventListener("click", function () {
 
 function createTweet(tweetObj) {
   let removeBtn = "";
+  let pinBtn = "";
   let reTweetedHtml = "";
   let replyTo = "";
   let data = tweetObj;
@@ -84,6 +85,17 @@ function createTweet(tweetObj) {
   } = data;
   /* delete post */
   if (tweetObj.tweetedBy?._id === user?._id) {
+    if (!tweetObj?.replyTo) {
+      pinBtn = `
+                    <a class="dropdown-item" href="#" >
+                      <button onclick ="pinPost('${tweetObj._id}', ${
+        tweetObj.pinned
+      })" class="removeBtn"> <i class="fas fa-thumbtack ${
+        tweetObj.pinned ? `active` : ""
+      }" ></i> ${tweetObj?.pinned ? "Unpin" : "Pin"} </button>
+                    </a>
+      `;
+    }
     removeBtn = `
                   <div class="dropleft">
                     <button data-toggle="dropdown" aria-expanded="false" class="postMore">
@@ -95,7 +107,10 @@ function createTweet(tweetObj) {
                       <a class="dropdown-item" href="#" >
                       <button onclick ="deletePost('${tweetObj._id}')" class="removeBtn"> <i class="fas fa-trash" ></i> Remove Tweet </button>
                       </a>
-    
+                      
+                      ${pinBtn}
+                      
+                      
                     </div>
                   </div>
           
@@ -395,4 +410,35 @@ function retweetPosts(event, postId) {
         window.location.reload();
       }
     });
+}
+
+/* pinned post */
+function pinPost(postId, pin) {
+  Swal.fire({
+    title: `Are you sure`,
+    text: pin ? `Wanna unpin this post` : `Only one post can pin.`,
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: pin ? "Yes, Unpin!" : `Yes, Pin`,
+  }).then(result => {
+    if (result.isConfirmed) {
+      const url = `${window.location.origin}/posts/${postId}/pin`;
+      fetch(url, {
+        method: "PUT",
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data._id) {
+            location.reload();
+          } else {
+            window.location.href = "/";
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  });
 }

@@ -443,6 +443,9 @@ body {
   background: transparent;
   color: #dcdedf;
 }
+.middle_side .tweetContainer .tweet .tweet_body .header div.dropleft .dropdown-menu.show a.dropdown-item button.removeBtn i.fas.fa-thumbtack.active {
+  color: blue;
+}
 .middle_side .tweetContainer .tweet .tweet_body .replyFlag p {
   color: #5e6266;
 }

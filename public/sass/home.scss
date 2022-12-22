@@ -511,6 +511,10 @@ body {
                   outline: 0;
                   background: transparent;
                   color: #dcdedf;
+
+                  i.fas.fa-thumbtack.active {
+                    color: blue;
+                  }
                 }
               }
             }
