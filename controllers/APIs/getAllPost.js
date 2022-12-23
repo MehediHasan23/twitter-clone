@@ -30,7 +30,6 @@ const getAllPost = async (req, res, next) => {
           : { $exists: true });
 
     /* get post only [following user] */
-
     req.query.followingOnly &&
       req.query.followingOnly === "true" &&
       (filter.tweetedBy = { $in: followingUsers });
@@ -38,7 +37,12 @@ const getAllPost = async (req, res, next) => {
     /* get pinned post */
     req.query.pinned && req.query.pinned === "true" && (filter.pinned = "true");
 
-    console.log(filter);
+    /* get [search post] */
+    if (req.query.searchText) {
+      const content = req.query.searchText;
+      filter.content = { $regex: new RegExp(content, "ig") };
+    }
+
     const posts = await Tweet.find(filter);
     await User.populate(posts, { path: "tweetedBy", select: "-password" });
     await Tweet.populate(posts, { path: "postData" });

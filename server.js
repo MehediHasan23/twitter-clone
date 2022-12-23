@@ -24,6 +24,7 @@ const { redisClient } = require("./utilities/cacheManager");
 const singlePost = require("./routes/APIs/singlePost");
 const profileRoute = require("./routes/profile/profileRoute");
 const searchRoute = require("./routes/search/searchRoute");
+const userRoute = require("./routes/users/userRoute");
 
 /* middleware */
 app.use(express.json());
@@ -44,6 +45,9 @@ app.use("/profile", profileRoute);
 
 /* search route */
 app.use("/search", searchRoute);
+
+/* get all users */
+app.use("/users", userRoute);
 
 /* single post route */
 app.use("/", singlePost);

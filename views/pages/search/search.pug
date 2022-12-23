@@ -14,6 +14,7 @@ block cssLink
 //- script added 
 block jsScript  
     script(src="/js/common.js" defer) 
+    script(src="/js/follow.js" defer) 
     script(src="/js/search.js" defer) 
     
     
@@ -35,7 +36,7 @@ block bodyContent
                 .modal-footer
                     .createPost 
                         .replyAvatar
-                            img(src="/uploads/profile/"+user.profileAvatar, alt='')
+                            img(src=avatarSrc, alt='')
 
                         .postField 
                             textarea#replyContent(placeholder="Tweet Your Reply")
@@ -50,22 +51,7 @@ block bodyContent
                                 button#replyBtn.replySubmit(disabled="") Reply
 
     
-        .modal-dialog
-            .modal-content
-                .modal-header
-                    h5#coverUpdateModalTitle.modal-title Update Cover Photo
-
-                    button.button-Close(type='button', data-dismiss='modal', aria-label='Close')
-                        span(aria-hidden='true') &times;
-
-                .modal-body
-                    input#updateInputCover(type="file")
-                    #CoverPrevieContainer
-                        img#CoverPreview
         
-                .modal-footer
-                    button.btn.CoverUpdateCloseBtn(type="button", data-dismiss="modal")  Close
-                    button#saveCoverImage.btn.CoverUpdateSaveBtn(type="button")  Update 
 
     main#main 
         
@@ -217,3 +203,4 @@ block bodyContent
     script.
         const user = !{userJs}
         const tab = '!{tab}'
+        const userProfile = {}
