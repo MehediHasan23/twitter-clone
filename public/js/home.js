@@ -197,7 +197,9 @@ tweetPost.addEventListener("click", function (e) {
 /* get all post */
 
 const loadPosts = async () => {
-  const data = await fetch(`${window.location.origin}/posts`);
+  const data = await fetch(
+    `${window.location.origin}/posts?followingOnly=true`
+  );
   const posts = await data.json();
   posts.forEach(post => {
     const postEl = createTweet(post);
