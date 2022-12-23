@@ -13,6 +13,18 @@ async function loadPostOrReplies() {
     const tweetEl = createTweet(post);
     tweetContainer.insertAdjacentElement("afterbegin", tweetEl);
   });
+
+  if (tab === "posts") {
+    const url = `${window.location.origin}/posts?tweetedBy=${userProfile._id}&pinned=true`;
+    const result = await fetch(url);
+    const pinnedPosts = await result.json();
+    if (pinnedPosts) {
+      pinnedPosts.forEach(post => {
+        const tweetEl = createTweet(post, true);
+        tweetContainer.insertAdjacentElement("afterbegin", tweetEl);
+      });
+    }
+  }
 }
 loadPostOrReplies();
 

@@ -35,6 +35,10 @@ const getAllPost = async (req, res, next) => {
       req.query.followingOnly === "true" &&
       (filter.tweetedBy = { $in: followingUsers });
 
+    /* get pinned post */
+    req.query.pinned && req.query.pinned === "true" && (filter.pinned = "true");
+
+    console.log(filter);
     const posts = await Tweet.find(filter);
     await User.populate(posts, { path: "tweetedBy", select: "-password" });
     await Tweet.populate(posts, { path: "postData" });

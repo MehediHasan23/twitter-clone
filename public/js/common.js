@@ -56,11 +56,12 @@ leftSide.children[0].addEventListener("click", function () {
 
 /* modal area close */
 
-function createTweet(tweetObj) {
+function createTweet(tweetObj, pinned) {
   let removeBtn = "";
   let pinBtn = "";
   let reTweetedHtml = "";
   let replyTo = "";
+  let pinFlag = "";
   let data = tweetObj;
   if (data.postData) {
     data = data.postData;
@@ -163,7 +164,19 @@ function createTweet(tweetObj) {
 
   const postContainer = document.createElement("div");
   // postContainer.classList.add("tweet");
+
+  if (pinned) {
+    postContainer.classList.add("pinPost");
+    pinFlag = `
+      <div class="pinPostFlag">
+        <i class="fas fa-thumbtack"> <h6>Pinned Post</h6></i> 
+      </div>
+    
+    `;
+  }
+
   postContainer.innerHTML = `
+      ${pinFlag}
       ${reTweetedHtml}
       <div class="tweet" onclick="singlePostPage(event, '${postId}')">
       <div class="avatar_area">

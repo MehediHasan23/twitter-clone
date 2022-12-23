@@ -400,6 +400,34 @@ body {
     border-left: 1px solid #2f3336;
     border-right: 1px solid #2f3336;
 
+    .pinPost {
+      border-bottom: 4px solid #eff3f4;
+
+      .pinPostFlag {
+        display: inline-block;
+        margin-top: 5px;
+        padding: 5px;
+        border-left: 1px solid #eff3f4;
+        border-right: 1px solid #eff3f4;
+        border-bottom: 1px solid #eff3f4;
+        border-top: 1px solid #eff3f4;
+        border-radius: 3px;
+
+        i.fas.fa-thumbtack {
+          display: flex;
+          align-items: center;
+          color: blue;
+
+          h6 {
+            // color: #ced0d1;
+            color: #eff3f4;
+            margin-left: 5px;
+            letter-spacing: 1px;
+          }
+        }
+      }
+    }
+
     p.retweetedHtml {
       margin-left: 35px;
       margin-top: 5px;
