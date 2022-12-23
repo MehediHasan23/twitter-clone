@@ -349,28 +349,17 @@ body {
   border-left: 1px solid #2f3336;
   border-right: 1px solid #2f3336;
 }
-.middle_side .tweetContainer .pinPost {
-  border-bottom: 4px solid #eff3f4;
-}
 .middle_side .tweetContainer .pinPost .pinPostFlag {
-  display: inline-block;
-  margin-top: 5px;
-  padding: 5px;
-  border-left: 1px solid #eff3f4;
-  border-right: 1px solid #eff3f4;
-  border-bottom: 1px solid #eff3f4;
-  border-top: 1px solid #eff3f4;
-  border-radius: 3px;
+  margin-left: 20px;
+  color: #71767b;
 }
 .middle_side .tweetContainer .pinPost .pinPostFlag i.fas.fa-thumbtack {
-  display: flex;
-  align-items: center;
-  color: blue;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-right: 15px;
 }
-.middle_side .tweetContainer .pinPost .pinPostFlag i.fas.fa-thumbtack h6 {
-  color: #eff3f4;
-  margin-left: 5px;
-  letter-spacing: 1px;
+.middle_side .tweetContainer .pinPost .pinPostFlag span {
+  font-size: 18px;
 }
 .middle_side .tweetContainer p.retweetedHtml {
   margin-left: 35px;
@@ -467,7 +456,7 @@ body {
   color: #dcdedf;
 }
 .middle_side .tweetContainer .tweet .tweet_body .header div.dropleft .dropdown-menu.show a.dropdown-item button.removeBtn i.fas.fa-thumbtack.active {
-  color: blue;
+  color: #dcdedf;
 }
 .middle_side .tweetContainer .tweet .tweet_body .replyFlag p {
   color: #5e6266;
@@ -766,4 +755,12 @@ div#replyModal .modal-dialog .modal-content .modal-footer .createPost .postField
   border-radius: 25px;
   color: white;
   font-weight: 500;
+}
+
+/* sweet alert */
+.swal2-container.swal2-center.swal2-backdrop-show {
+  background: rgba(91, 112, 131, 0.4);
+}
+.swal2-container.swal2-center.swal2-backdrop-show .swal2-popup.swal2-modal.swal2-icon-warning.swal2-show {
+  background: #000;
 }

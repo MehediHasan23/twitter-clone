@@ -401,29 +401,18 @@ body {
     border-right: 1px solid #2f3336;
 
     .pinPost {
-      border-bottom: 4px solid #eff3f4;
-
       .pinPostFlag {
-        display: inline-block;
-        margin-top: 5px;
-        padding: 5px;
-        border-left: 1px solid #eff3f4;
-        border-right: 1px solid #eff3f4;
-        border-bottom: 1px solid #eff3f4;
-        border-top: 1px solid #eff3f4;
-        border-radius: 3px;
+        margin-left: 20px;
+        color: #71767b;
 
         i.fas.fa-thumbtack {
-          display: flex;
-          align-items: center;
-          color: blue;
+          font-size: 20px;
+          margin-top: 5px;
+          margin-right: 15px;
+        }
 
-          h6 {
-            // color: #ced0d1;
-            color: #eff3f4;
-            margin-left: 5px;
-            letter-spacing: 1px;
-          }
+        span {
+          font-size: 18px;
         }
       }
     }
@@ -541,7 +530,7 @@ body {
                   color: #dcdedf;
 
                   i.fas.fa-thumbtack.active {
-                    color: blue;
+                    color: #dcdedf;
                   }
                 }
               }
@@ -921,5 +910,14 @@ div#replyModal {
         }
       }
     }
+  }
+}
+
+/* sweet alert */
+.swal2-container.swal2-center.swal2-backdrop-show {
+  background: rgba(91, 112, 131, 0.4);
+
+  .swal2-popup.swal2-modal.swal2-icon-warning.swal2-show {
+    background: #000;
   }
 }

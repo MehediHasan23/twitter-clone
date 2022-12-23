@@ -169,15 +169,16 @@ function createTweet(tweetObj, pinned) {
     postContainer.classList.add("pinPost");
     pinFlag = `
       <div class="pinPostFlag">
-        <i class="fas fa-thumbtack"> <h6>Pinned Post</h6></i> 
+        <i class="fas fa-thumbtack"></i> 
+        <span>Pinned Post</span>
       </div>
     
     `;
   }
 
   postContainer.innerHTML = `
-      ${pinFlag}
-      ${reTweetedHtml}
+  ${reTweetedHtml}
+  ${pinFlag}
       <div class="tweet" onclick="singlePostPage(event, '${postId}')">
       <div class="avatar_area">
         <div class="postedImg">
@@ -429,12 +430,14 @@ function retweetPosts(event, postId) {
 function pinPost(postId, pin) {
   Swal.fire({
     title: `Are you sure`,
-    text: pin ? `Wanna unpin this post` : `Only one post can pin.`,
+    text: pin
+      ? "This will no longer appear automatically at the top of your profile."
+      : "This will appear at the top of your profile and replace any previously pinned Tweet.",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonColor: "#3085d6",
+    confirmButtonColor: "#1A8CD8",
     cancelButtonColor: "#d33",
-    confirmButtonText: pin ? "Yes, Unpin!" : `Yes, Pin`,
+    confirmButtonText: pin ? "Unpin!" : `Pin`,
   }).then(result => {
     if (result.isConfirmed) {
       const url = `${window.location.origin}/posts/${postId}/pin`;

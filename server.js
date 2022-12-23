@@ -23,6 +23,7 @@ const tweetRoute = require("./routes/APIs/tweetPost");
 const { redisClient } = require("./utilities/cacheManager");
 const singlePost = require("./routes/APIs/singlePost");
 const profileRoute = require("./routes/profile/profileRoute");
+const searchRoute = require("./routes/search/searchRoute");
 
 /* middleware */
 app.use(express.json());
@@ -40,6 +41,9 @@ app.use("/posts", tweetRoute);
 
 /* profile route */
 app.use("/profile", profileRoute);
+
+/* search route */
+app.use("/search", searchRoute);
 
 /* single post route */
 app.use("/", singlePost);

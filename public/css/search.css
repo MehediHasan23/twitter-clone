@@ -1,0 +1,56 @@
+.middle_side .top_searching_section {
+  display: flex;
+  padding: 15px;
+  border-left: 1px solid #2f3336;
+  border-right: 1px solid #2f3336;
+  border-bottom: 1px solid #2f3336;
+}
+.middle_side .top_searching_section h4 {
+  margin-left: 10px;
+  color: #ced0d1;
+}
+.middle_side .search_heading_container {
+  border-left: 1px solid #2f3336;
+  border-right: 1px solid #2f3336;
+  padding: 30px 15px 30px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.middle_side .search_heading_container .searchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.middle_side .search_heading_container .searchBox input#searchInput {
+  width: 450px;
+  height: 50px;
+  border-radius: 28px;
+  background: #202327;
+  border: none;
+  outline: none;
+  color: #666c70;
+  padding: 0px 15px 0px 50px;
+  margin-left: -30px;
+}
+.middle_side .search_heading_container .searchBox i.fas.fa-search {
+  z-index: 1;
+  color: #666c70;
+  padding-left: 28px;
+}
+.middle_side .search_heading_container .settings button.setting_icon {
+  transition: 0.5s;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.middle_side .search_heading_container .settings button.setting_icon:hover {
+  background: #202327;
+}
