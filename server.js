@@ -25,6 +25,7 @@ const singlePost = require("./routes/APIs/singlePost");
 const profileRoute = require("./routes/profile/profileRoute");
 const searchRoute = require("./routes/search/searchRoute");
 const userRoute = require("./routes/users/userRoute");
+const httpSocketServer = require("./socektServer");
 
 /* middleware */
 app.use(express.json());
@@ -72,6 +73,10 @@ mongoose
   })
   .then(() => {
     console.log("db connected");
+    httpSocketServer.listen(3005, () => {
+      console.log("Socket server is running @3005");
+    });
+
     app.listen(port, () => {
       console.log(`server is running @${port}`);
     });
