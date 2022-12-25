@@ -1,6 +1,8 @@
 /* dependencies */
 
 const createHttpError = require("http-errors");
+const fs = require("fs");
+const path = require("path");
 const User = require("../../models/auth/UserModel");
 const Tweet = require("../../models/tweet/tweet");
 const {
@@ -23,6 +25,26 @@ const deletePost = async (req, res, next) => {
       await deleteCache(`posts:${deletedPost._id}`);
     } else {
       next(createHttpError(404, "Bad Request"));
+    }
+
+    /* delete images from [file system] */
+
+    if (deletedPost?.tweetImages && deletedPost?.tweetImages.length) {
+      deletedPost?.tweetImages.forEach(imgName => {
+        fs.unlink(
+          path.join(
+            __dirname,
+            `./../../public/uploads/${deletedPost.tweetedBy}/tweets/${imgName}`
+          ),
+          err => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log(imgName + ` deleted successfully`);
+            }
+          }
+        );
+      });
     }
 
     /* delete replied post  */
