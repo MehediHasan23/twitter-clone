@@ -39,8 +39,6 @@ const deletePost = async (req, res, next) => {
           err => {
             if (err) {
               console.log(err);
-            } else {
-              console.log(imgName + ` deleted successfully`);
             }
           }
         );
