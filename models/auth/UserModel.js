@@ -87,6 +87,10 @@ const UserSchema = new mongoose.Schema(
         ref: "User",
       },
     ],
+
+    activeStatus: Boolean,
+
+    lastSeen: Date,
   },
   {
     timestamps: true,
